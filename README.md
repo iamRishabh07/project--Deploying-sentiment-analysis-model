@@ -1,31 +1,42 @@
 # project--Deploying-sentiment-analysis-model
-# Deep Learning Udacity Nanodegree - SageMaker Deployment Project
+
+<div align="center">
+<img src="https://s3.amazonaws.com/video.udacity-data.com/topher/2018/October/5bd36f2f_6-6-project-building-sentiment-analysis-model/6-6-project-building-sentiment-analysis-model.jpg" height="300" width="300" />
+<br />
+<h1>Deploying a Sentiment Analysis Model</h1>
+</div>
+
+## Project Overview
+
+In this project, I have constructed a recurrent neural network to determine the sentiment of a movie review using the IMDB data set. I have created this model using Amazon's SageMaker service. Also, I have deployed my model and constructed a simple web app which will interact with the deployed model. The prediction model is implemented in PyTorch and deployed to AWS SageMaker.   
+To serve it on a web page, I call the SageMaker model from a AWS Lambda service, which can be accessed via API Gateway.
+
+## SageMaker Deployment Project
+
+The notebook and Python files provided here, once completed, result in a simple web app which interacts with a deployed recurrent neural network performing sentiment analysis on movie reviews. This project assumes some familiarity with SageMaker, the mini-project, Sentiment Analysis using XGBoost, should provide enough background.
+
+Please see the [README](https://github.com/udacity/sagemaker-deployment/tree/master/README.md) in the root directory for instructions on setting up a SageMaker notebook and downloading the project files (as well as the other notebooks).
 
 
-This is the final solution of the project 'Sagemaker Deployment' which consists in deploying a Sentiment Analysis model using RNN in the Amazon AWS SageMaker tool. The notebook and Python files provided here result in a simple web app which interacts with a deployed recurrent neural network performing sentiment analysis on movie reviews.
+## What is it?
 
-In the final architecture AWS API Gateway and AWS Lambda functions is used as well. The application architecture diagram is:
+It's a deployed web page which defines sentiment of a movie review.  
 
-![Web app Diagram](./Web&#32;App&#32;Diagram.svg) 
+Below are results for some reviews for "[Au service de la France](https://www.imdb.com/title/tt4367560/reviews?ref_=tt_urv)":
 
-You can find the original code without solutions in the original [Udacity SageMaker Deployment repository](https://github.com/udacity/sagemaker-deployment).
+---
 
- This project assumes some familiarity with SageMaker, the IMDB Sentiment Analysis using XGBoost mini-project (which can be found in the original repository) should provide enough background.
+![Positive review](https://github.com/iamRishabh07/project--Deploying-sentiment-analysis-model/blob/master/screenshots/PositiveReview2.png)
+
+---
+
+![Negative review](https://github.com/iamRishabh07/project--Deploying-sentiment-analysis-model/blob/master/screenshots/NegativeReview1.png)
 
 
-## Setup instructions
-Please see the [original README](https://github.com/udacity/sagemaker-deployment/tree/master/README.md) in the root directory for instructions on setting up a SageMaker notebook and downloading the project files (as well as the other notebooks). For the solutions only clone this repository:
+## Authors
 
-```
-cd SageMaker
-git clone https://github.com/iamRishabh07/project--Deploying-sentiment-analysis-model.git
-exit
-```
+* Rishabh Srivastava
 
-## Web app final result
+## License
 
-The final project will be executed in a simple html page which can be deployed anywhere. 
-
-You will see the following:
-
-![Web app example](./webapp.gif) 
+[MIT](https://choosealicense.com/licenses/mit/)
