@@ -15,7 +15,6 @@ def model_fn(model_dir):
     """Load the PyTorch model from the `model_dir` directory."""
     print("Loading model.")
 
-    # First, load the parameters used to create the model.
     model_info = {}
     model_info_path = os.path.join(model_dir, 'model_info.pth')
     with open(model_info_path, 'rb') as f:
@@ -23,7 +22,6 @@ def model_fn(model_dir):
 
     print("model_info: {}".format(model_info))
 
-    # Determine the device and construct the model.
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = LSTMClassifier(model_info['embedding_dim'], model_info['hidden_dim'], model_info['vocab_size'])
 
@@ -56,18 +54,7 @@ def _get_train_data_loader(batch_size, training_dir):
 
 
 def train(model, train_loader, epochs, optimizer, loss_fn, device):
-    """
-    This is the training method that is called by the PyTorch training script. The parameters
-    passed are as follows:
-    model        - The PyTorch model that we wish to train.
-    train_loader - The PyTorch DataLoader that should be used during training.
-    epochs       - The total number of epochs to train for.
-    optimizer    - The optimizer to use during training.
-    loss_fn      - The loss function used for training.
-    device       - Where the model and data should be loaded (gpu or cpu).
-    """
-    
-    # TODO: Paste the train() method developed in the notebook here.
+
     for epoch in range(1, epochs + 1):
         model.train()
         total_loss = 0
@@ -77,7 +64,6 @@ def train(model, train_loader, epochs, optimizer, loss_fn, device):
             batch_X = batch_X.to(device)
             batch_y = batch_y.to(device)
             
-            # TODO: Complete this train method to train the model provided.
             optimizer.zero_grad()
             out = model.forward(batch_X)
             loss = loss_fn(out, batch_y)
@@ -89,9 +75,6 @@ def train(model, train_loader, epochs, optimizer, loss_fn, device):
 
 
 if __name__ == '__main__':
-    # All of the model parameters and training parameters are sent as arguments when the script
-    # is executed. Here we set up an argument parser to easily access the parameters.
-
     parser = argparse.ArgumentParser()
 
     # Training Parameters
